@@ -34,7 +34,8 @@ jobs:
 
       # Install packages
       - name: Run npm install
-        if: steps.setup-node.outputs.cache-hit != 'true'
+        # doesn't work quite yet
+        # if: steps.setup-node.outputs.cache-hit != 'true'
         run: npm install
 
       # Gatsby build
