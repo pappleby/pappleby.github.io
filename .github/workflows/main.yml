@@ -40,8 +40,8 @@ jobs:
         run: npm install
 
       # Gatsby build
-      - name: Run npm deploy
-        run: npm run deploy
+      - name: Run npm build
+        run: npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
