@@ -27,6 +27,14 @@ jobs:
       - name: Create public folder for build output
         run: mkdir -p public
 
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+
+
       # Install packages
       - name: Run npm install
         run: npm install
@@ -40,3 +48,4 @@ jobs:
         with:
           branch: main # The branch the action should deploy to.
           folder: public # The folder the action should deploy.
+          access-token: ${{ secrets.ACCESS_TOKEN }}
